@@ -27,11 +27,11 @@ public class    Player {
         this.y = y;
 
         sprites = new Image[] {
-                new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/bird1.png").getImage(),
-                new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/bird2.png").getImage()
+                new ImageIcon(Player.class.getResource("/images/bird1.png")).getImage(),
+                new ImageIcon(Player.class.getResource("/images/bird2.png")).getImage()
         };
 
-        crashSprite = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/bird_crash.png").getImage();
+        crashSprite = new ImageIcon(Player.class.getResource("/images/bird_crash.png")).getImage();
 
     }
 

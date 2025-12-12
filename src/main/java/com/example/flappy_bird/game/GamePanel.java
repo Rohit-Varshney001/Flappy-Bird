@@ -44,8 +44,8 @@ public class GamePanel extends JPanel {
     public GamePanel() {
 //        new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/bird1.png").getImage(),
 
-        land1 = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/land_1.png").getImage();
-        land2 = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/land_2.png").getImage();
+        land1 = new ImageIcon(GamePanel.class.getResource("/images/land_1.png")).getImage();
+        land2 = new ImageIcon(GamePanel.class.getResource("/images/land_2.png")).getImage();
 
         landX2 = land1.getWidth(null);
 
@@ -67,7 +67,7 @@ public class GamePanel extends JPanel {
                 }
                 // Jump if not game over
                 if (!gameOver && e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    SoundPlayer.playSound("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/sounds/sfx_wing.wav");
+                    SoundPlayer.playSound("/sounds/sfx_wing.wav");
                     player.jump();
                 }
             }
@@ -92,14 +92,14 @@ public class GamePanel extends JPanel {
 
         timer = new Timer(16, e -> gameLoop()); // ~60 FPS
         timer.start();
-        background = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/background.png").getImage();
+        background = new ImageIcon(GamePanel.class.getResource("/images/background.png")).getImage();
 
-        pipeRedTop = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/pipe_red.png").getImage();
-        pipeRedBottom = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/pipe_red.png").getImage();
+        pipeRedTop = new ImageIcon(GamePanel.class.getResource("/images/pipe_red.png")).getImage();
+        pipeRedBottom = new ImageIcon(GamePanel.class.getResource("/images/pipe_red.png")).getImage();
 
 
-        pipeGreenTop = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/pipe_green.png").getImage();
-        pipeGreenBottom = new ImageIcon("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/images/pipe_green.png").getImage();
+        pipeGreenTop = new ImageIcon(GamePanel.class.getResource("/images/pipe_green.png")).getImage();
+        pipeGreenBottom = new ImageIcon(GamePanel.class.getResource("/images/pipe_green.png")).getImage();
 
         pipeRedTop = rotateImage(pipeRedTop, 180);
         pipeGreenTop = rotateImage(pipeGreenTop, 180);
@@ -186,7 +186,7 @@ public class GamePanel extends JPanel {
             if (!pipe.isScored() && pipe.getX() + pipe.getWidth() < 0) {
                 score++;
                 pipe.setScored(true);
-                SoundPlayer.playSound("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/sounds/sfx_point.wav");
+                SoundPlayer.playSound("/sounds/sfx_point.wav");
 
             }
         }
@@ -226,7 +226,7 @@ public class GamePanel extends JPanel {
 
             if (playerBounds.intersects(topPipe) || playerBounds.intersects(bottomPipe) ||
                     playerBounds.y + playerBounds.height > 600 || playerBounds.y < 0) {
-                SoundPlayer.playSound("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/sounds/sfx_hit.wav");
+                SoundPlayer.playSound("/sounds/sfx_hit.wav");
                 gameOver = true;
                 player.setDead(true);  // add setter in Player.java
                 return;
@@ -269,7 +269,7 @@ public class GamePanel extends JPanel {
         pipeSpawnTimer = 0;
 
         // Give small swooshing sound (optional)
-        SoundPlayer.playSound("C:/Users/Lenovo/Documents/flappy_bird/flappy_bird/src/main/resources/sounds/sfx_swooshing.wav");
+        SoundPlayer.playSound("/sounds/sfx_swooshing.wav");
 
     }
 
